@@ -49,4 +49,24 @@ fn main() {
     // from `another_point`
 
     println!("second point: ({}, {})", bottom_right.x, bottom_right.y);
+
+    //Destructure the point using a `let` binding
+    let Point { x: left_edge, y: top_edge } = point;
+
+    let _rectangle = Rectangle {
+        // struct instantiation is an expression too
+        top_left: Point { x: left_edge, y: top_edge},
+        bottom_right: bottom_right,
+    };
+
+    //Instantiate a tuple struct
+    let pair = Pair(1, 0.1);
+
+    //Access the fields of a tuple struct
+    println!("pair contains {:?} and {:?}", pair.0, pair.1);
+
+    //Destructure a tuple struct
+    let Pair(integer, decimal) = pair;
+
+    println!("pair contains {:?} and {:?}", integer, decimal);
 }
